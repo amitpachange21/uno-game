@@ -1,0 +1,59 @@
+<div class="container mt-3" *ngIf="players.length>0; else elseBlock">
+    <form [formGroup]="myForm" class="form-group">
+        <h4>Choose players</h4>
+        <div *ngFor="let player of players">
+            <li>
+                <input type="checkbox" (change)="onChange(player.id, player.name, $any($event.target).checked)"
+                    value="{{player.id}}">
+                {{player.name}}
+
+            </li>
+
+        </div>
+    </form>
+
+    <hr>
+
+    <div class="container">
+
+        <form class="form-group">
+            <div *ngIf="results.length>1">
+                <h4>Select Winner</h4>
+                <div *ngFor="let playermap of results | keyvalue">
+                    <!-- id is {{playermap.value[0]}} name is {{playermap.value[1]}} -->
+                    <!-- {{playermap.value[1]}} -->
+                    <!-- <select class="form-select form-select-sm mr-3" #winner name="winner" id="winner">
+                        <option value="0" [disabled]="isWinnerSelected">0</option>
+                        <option value="{{playermap.value[0]}}" [disabled]="isWinnerSelected">1</option>
+                    </select>  -->
+                    <!-- <button class="btn btn-primary btn-small m-1" [disabled]="isWinnerSelected" type="submit"
+                        (click)="addWinner(winner.value)">Add
+                        winner</button> -->
+                    <div>
+                        <button [disabled]="isWinnerSelected" class="m-1"
+                            (click)="addWinner(playermap.value[0])">{{playermap.value[1]}}</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="isWinnerSelected && counter>1">
+        <p style="color: red;">Winner cannot be more than 1 </p>
+    </div>
+
+    <div *ngIf="successMsg.length>0">
+        <p class="alert alert-success">{{successMsg}}</p>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <ng-template #elseBlock>
+        <p style="color: red;">Please add Players to give score</p>
+    </ng-template>
+
+</div>

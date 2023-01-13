@@ -1,0 +1,61 @@
+<!-- <div class="container">
+    <div style="text-align: center;">
+        <form (submit)="login()">
+            <label>
+                Email:
+                <input type="email" [(ngModel)]="email" name="email" required>
+            </label>
+            <br>
+            <label>
+                Password:
+                <input type="password" [(ngModel)]="password" name="password" required>
+            </label>
+            <br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div> -->
+
+<!-- <div class="login-form-bd">
+    <div class="form-wrapper">
+        <div class="form-container">
+            <h1> Please Login</h1>
+            <form (submit)="login()">
+                <div class="form-control">
+                    <label> Email</label>
+                    <input type="text" [(ngModel)]="email" required>
+                    
+                </div>
+
+                <div class="form-control">
+                    <label> Password</label>
+                    <input type="password" [(ngModel)]="password" required>
+                    
+                </div>
+                <button class="login-btn">Login</button>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="vh-100 d-flex justify-content-center align-items-center ">
+    <div class="col-md-5 p-5 shadow-sm border rounded-5 border-primary bg-white">
+        <h2 class="text-center mb-4 text-primary">Login Form</h2>
+        <form (submit)="login()">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control border border-primary" [(ngModel)]="email" name="email"
+                    aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control border border-primary"  [(ngModel)]="password" name="password">
+            </div>
+            
+            <div class="d-grid">
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

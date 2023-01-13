@@ -1,0 +1,66 @@
+<div class="container">
+
+    <div class="container mt-3">
+
+        <div *ngIf="message.length>0">
+
+            <div *ngIf="message === 'New player added successfully' && status == 'ok' ; else elseBlock">
+                <div class="alert alert-success">
+                    <p>{{ message }}</p>
+                </div>
+            </div>
+
+            <ng-template #elseBlock>
+                <div>
+                    <p class="alert alert-success">{{message}}</p>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+    <h3>Add Player</h3>
+
+    <form>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" placeholder="Enter name" #myName type="text" name='name' ngModel
+                required>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Email</label>
+            <input type="email" class="form-control" placeholder="Enter email" #myEmail type="email" name='email'
+                ngModel required>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="addPlayer(myName.value, myEmail.value)">Submit</button>
+    </form>
+</div>
+
+
+
+<div class="container mt-3">
+    <h4>All Players</h4>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Sr No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Delete ?</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let player of players; let i = index">
+            <td>{{ i+1 }}</td>
+            <td>{{ player.name }}</td>
+            <td>{{ player.email }}</td>
+            <td> <span class="btn btn-danger" (click)="deletePlayer(player.id)">Delete</span></td>
+        </tr>
+    </table>
+
+    <div class="d-flex justify-content-center">
+        <div class="spinner-border" style="display: inline-block;" id="loading" role="status">
+            <!-- <span class="sr-only" ></span> -->
+        </div>
+    </div>
+
+
+</div>

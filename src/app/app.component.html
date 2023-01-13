@@ -1,0 +1,22 @@
+<!-- <app-add-player></app-add-player> -->
+
+<div class="container mt-1">
+
+    <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" routerLink="/dashboard"><span style="text-decoration: solid;">UNO</span></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active"  routerLink="/dashboard">Dashboard<span class="sr-only">(current)</span></a>
+                <a class="nav-link" routerLink="/add-score">New Game</a>
+                <a class="nav-link" routerLink="/players">Add Players</a>
+            </div>
+        </div>
+    </nav>
+
+</div>
+
+<router-outlet></router-outlet>
